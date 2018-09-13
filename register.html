@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>囤币吧个人中心</title>
+	<meta name="description" content="">
+	<!-- Place favicon.ico in the root directory -->
+	<!-- all css here -->
+	<!-- bootstrap v3.3.6 css -->
+	<link rel="stylesheet" href="./static/css/bootstrap.min.css">
+	<!-- animate css -->
+	<link rel="stylesheet" href="./static/css/animate.css">
+	<!-- jquery-ui.min css -->
+	<link rel="stylesheet" href="./static/css/jquery-ui.min.css">
+	<!-- meanmenu css -->
+	<link rel="stylesheet" href="./static/css/meanmenu.min.css">
+	<!-- bxslider css -->
+	<!--flaticon css -->
+	<link rel="stylesheet" href="./static/css/flaticon.css">
+	<!-- style css -->
+	<link rel="stylesheet" href="./static/css/style.css">
+	<!-- responsive css -->
+	<link rel="stylesheet" href="./static/css/responsive.css">
+</head>
+
+<body>
+	<div class="login">
+		<h5>用户注册</h5>
+		<div class="login-form">
+			<div class="form">
+				<div class="form-item">
+					<span class="label">手机号</span>
+					<input type="text" placeholder="输入手机号码" id="phone" />
+					<span class="form-item-info-phone form-item-info"></span>
+				</div>
+				<div class="form-item">
+					<span class="label">密码</span>
+					<input type="password" placeholder="输入密码" id="pwd" />
+					<div class="form-item-info-rule">密码必须是由6-21字母和数字组成，且不能是纯数字或纯英文</div>
+				</div>
+				<div class="form-item">
+					<span class="label">确认密码</span>
+					<input type="password" placeholder="确认密码" id="confirmPwd" />
+					<span class="form-item-info-pwd form-item-info"></span>
+				</div>
+				<div class="form-item">
+					<span class="label">验证码</span>
+					<input type="text" class="form-short" id="yzm" />
+					<input type="button" value="发送验证码" class="form-yzm" id="yzmBtn" onclick="sendYZM(this)" />
+					<span class="form-item-info-yzm form-item-info"></span>
+				</div>
+				<div class="form-item">
+					<span class="label">邀请码</span>
+					<input type="text" id="invite" />
+					<span class="form-item-info-yqm form-item-info"></span>
+				</div>
+				<div class="form-item">
+					<span class="label"></span>
+					<button class="form-btn" onclick="register()">注册</button>
+					<button style="border-radius: 3px; padding: 0 8px; color: #fff; margin-left: 10px; font-size: 12px;" onclick="back()">返回</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="./static/js/jquery-3.2.1.min.js"></script>
+	<script src="static/js/index.js"></script>
+	<script>
+		var path = 'https://api.tunbiba.com';
+		var inviteCode = window.location.search.split('=')[1];
+		if (inviteCode) {
+			$('#invite').val(inviteCode.replace('&nsukey', ''));
+		}
+		// 验证码
+		function sendYZM($this) {
+			var phone = $('#phone').val();
+			if (/^(1[3-9][0-9])\d{8}$/.test(phone)) {
+				$('.form-item-info-phone').text('');
+				$.post(path + "/Api/User/SendSmsCode", {
+					Mobile: phone,
+					Type: '0'
+				}, function (result) {
+					$this.setAttribute("disabled", true);
+					if (result.Success) {
+						if (result.ResponseObject) {
+							settime($this);
+						} else {
+							bw.toast(result.Message);
+						}
+					} else {
+						$this.removeAttribute("disabled");
+					}
+				});
+			} else {
+				$('.form-item-info-phone').text('手机号码不正确')
+			}
+		}
+
+		// 倒计时
+		var countdown = 60;
+
+		function settime(val) {
+			if (countdown == 0) {
+				val.removeAttribute("disabled");
+				val.setAttribute("class", 'form-yzm');
+				val.value = "发送验证码";
+				countdown = 60;
+			} else {
+				val.setAttribute("class", 'form-yzm form-yzm-gray');
+				val.class
+				val.value = "重新发送(" + countdown + ")";
+				countdown--;
+				setTimeout(function () {
+					settime(val)
+				}, 1000)
+			}
+		}
+
+		// 注册
+		function register() {
+			var phone = $('#phone').val();
+			var pwd = $('#pwd').val();
+			var confirmPwd = $('#confirmPwd').val();
+			var yzm = $('#yzm').val();
+			var invite = $('#invite').val();
+			if (!phone) {
+				$('.form-item-info-phone').text('手机号码不能为空');
+				return false;
+			} else {
+				$('.form-item-info-phone').text('');
+			}
+			if (!(/^(1[3-9][0-9])\d{8}$/.test(phone))) {
+				$('.form-item-info-phone').text('手机号码不正确');
+				return false;
+			} else {
+				$('.form-item-info-phone').text('')
+			}
+			if (pwd != confirmPwd) {
+				$('.form-item-info-pwd').text('两次密码不一致');
+				return false;
+			} else {
+				$('.form-item-info-pwd').text('');
+			}
+			if (!(/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(pwd))) {
+				$('.form-item-info-pwd').text('密码格式不对');
+				return false;
+			} else {
+				$('.form-item-info-pwd').text('');
+			}
+			if (!yzm) {
+				$('.form-item-info-yzm').text('验证码不能为空');
+				return false;
+			} else {
+				$('.form-item-info-yzm').text('');
+			}
+			if (!invite) {
+				$('.form-item-info-yqm').text('邀请码不能为空');
+				return false;
+			} else {
+				$('.form-item-info-yqm').text('');
+			}
+			$.post(path + "/Api/User/Register", {
+				UserName: phone,
+				NickName: phone,
+				Mobile: phone,
+				Pwd: pwd,
+				ValidateCode: yzm,
+				InviteCode: invite
+			},
+				function (result) {
+					if (result.Success) {
+						if (result.ResponseObject) {
+							bw.toast('注册成功');
+							var host = window.location.host;
+							window.location.href = window.location.protocol + '//' + host + '/login.html';
+						} else {
+							bw.toast(result.Message);
+						}
+					} else {
+						bw.toast(result.Message);
+					}
+				}
+			)
+		}
+
+		function back() {
+			window.location.href = window.location.protocol + '//' + window.location.host + '/index.html';
+		}
+	</script>
+</body>
+
+</html>

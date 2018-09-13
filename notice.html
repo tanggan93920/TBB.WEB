@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>囤币吧个人中心</title>
+    <meta name="description" content="">
+    <!-- Place favicon.ico in the root directory -->
+    <!-- all css here -->
+    <!-- bootstrap v3.3.6 css -->
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="./static/css/animate.css">
+    <!-- jquery-ui.min css -->
+    <link rel="stylesheet" href="./static/css/jquery-ui.min.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="./static/css/meanmenu.min.css">
+    <!-- bxslider css -->
+    <!--flaticon css -->
+    <link rel="stylesheet" href="./static/css/flaticon.css">
+    <link rel="stylesheet" href="./static/css/pagination.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="./static/css/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="./static/css/responsive.css">
+</head>
+
+<body>
+    <header class="gc_main_menu_wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="pull-left" style="margin-left: 10px">
+                    <div class="logo-area">
+                        <a href="javascript:;">
+                            <img width="60" src="./static/img/logo.png" alt="logo">
+                        </a>
+                    </div>
+                </div>
+                <!-- Mobile Menu  Start -->
+                <div class="pull-right" style="margin-right: 10px">
+                    <div class="menu-area  hidden-xs">
+                        <nav class="wd_single_index_menu btc_main_menu">
+                            <div id="webNav" class="webNav">
+                                <div id="navV2Wrap">
+                                    <div id="navV2" class="nav navV2">
+                                        <div class="navMainContent">
+                                            <div class="navContent">
+                                                <div id="navCenterContent" class="navCenterContent">
+                                                    <div id="navCenter" class="navCenter" style="width: 680px;">
+                                                        <div class="itemContainer">
+                                                            <div title="" id="nav2" class="item itemCol2 itemIndex1 itemSelectedIndex1" colid="2">
+                                                                <div class="itemCenter">
+                                                                    <a hidefocus="true"  href="index.html">
+                                                                        <span class="itemName0">首页</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div title="" id="nav103" class="item itemCol103 itemIndex2" colid="103">
+                                                                <div class="itemCenter">
+                                                                    <a hidefocus="true" download="囤币吧安装程序.exe" href="./downloads/囤币吧安装程序.exe">
+                                                                        <span class="itemName0">软件下载</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div title="" id="nav103" class="item itemCol103 itemSelected itemIndex2" colid="103">
+                                                                <div class="itemCenter">
+                                                                    <a hidefocus="true" href="notice.html">
+                                                                        <span class="itemName0">公告</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div title="" id="nav103" class="item itemCol103 itemIndex2" colid="103">
+                                                                <div class="itemCenter openLevel">
+                                                                    <a hidefocus="true" style="outline:none;" href="javascript:;">
+                                                                        <span class="itemName0">社区直播</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div title="" id="nav103" class="item itemCol103 itemIndex2" colid="103">
+                                                                <div class="itemCenter openLevel">
+                                                                    <a hidefocus="true" style="outline:none;" href="javascript:;">
+                                                                        <span class="itemName0">交易大厅</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div title="" id="nav103" class="item itemCol103 itemIndex2" colid="103">
+                                                                <div class="itemCenter" id="contact">
+                                                                    <a hidefocus="true" style="outline:none;" href="javascript:;">
+                                                                        <span class="itemName0">联系我们</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div style="display: none;" id="personCenter" class="item itemCol104 itemIndex5" colid="104">
+                                                                <div class="itemCenter">
+                                                                    <a hidefocus="true"  href="person.html">
+                                                                        <span class="itemName0">个人中心</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                        <div id="user-status">
+                            <div class="dropup-menu" style="display: none;">
+                                <button class="btn btn-default 
+										dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                    <li id="logout">
+                                        <a href="#">退出</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="login-btn" style="display: none;">
+                                <a href="login.html" class="btn1">
+                                    <span>登录</span>
+                                </a>
+                                <a href="register.html" class="btn1">
+                                    <span>注册</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="notice-container">
+        <div class="notice-body">
+            <div class="notice-head row">
+                <div class="col-md-4">日期</div>
+                <div class="col-md-4">标题</div>
+                <div class="col-md-4">列表</div>
+            </div>
+            <div class="notice-items row" id="noticeList"></div>
+            <div class="pagination m-style" style="float: right"></div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin: 80px auto; background: #fff;border-radius: 10px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title notice-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-content" style="padding: 30px;box-shadow: 0 0 0 transparent; border: 0">
+                <div class="notice-article"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/jquery-3.2.1.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <script src="./static/js/jquery.pagination.js"></script>
+    <script src="static/js/index.js"></script>
+    <script>
+        var path = 'https://api.tunbiba.com';
+        var pageCount = 0;
+        $(function () {
+            $.ajax({
+                url: path + "/Api/User/GetNoticePage",
+                data: {
+                    Type: 0,
+                    PageIndex: 1,
+                    PageSize: 10,
+                },
+                dataType: 'json',
+                success: function (result) {
+                    if (result.Success) {
+                        var data = result.ResponseObject;
+                        if (data.length > 0) {
+                            var _html = '';
+                            for (var i = 0; i < data.length; i++) {
+                                _html += '<div class="notice-item clearfix">';
+                                _html += '<div class="col-md-4">' + data[i].CreateTime + '</div>';
+                                _html += '<div class="col-md-4">' + data[i].Title + '</div>';
+                                _html += '<div class="col-md-4"><button class="btn btn-default" onclick="openDetail(' + data[i].Id + ')">查看</button></div>';
+                                _html += '</div>';
+                            }
+                            $('#noticeList').html(_html);
+                        } else {
+                            $('#noticeList').html('<div style="text-align: center; padding: 10px 0;">暂无数据</div>');
+                        }
+                        $('.pagination').pagination({
+                            pageCount: Math.ceil(result.RecordCount / 10),
+                            jump: false,
+                            coping: true,
+                            homePage: '首页',
+                            endPage: '尾页',
+                            prevContent: '上页',
+                            nextContent: '下页',
+                            callback: function (api) {
+                                getNoticeData(api.getCurrent());
+                            }
+                        });
+                    }
+                }
+            });
+        });
+
+        function getNoticeData(PageIndex) {
+            $.ajax({
+                url: path + "/Api/User/GetNoticePage",
+                data: {
+                    Type: 0,
+                    PageIndex: PageIndex,
+                    PageSize: 10,
+                },
+                dataType: 'json',
+                success: function (result) {
+                    if (result.Success) {
+                        var data = result.ResponseObject;
+                        if (data.length > 0) {
+                            var _html = '';
+                            for (var i = 0; i < data.length; i++) {
+                                _html += '<div class="notice-item clearfix">';
+                                _html += '<div class="col-md-4">' + data[i].CreateTime + '</div>';
+                                _html += '<div class="col-md-4">' + data[i].Title + '</div>';
+                                _html += '<div class="col-md-4"><button class="btn btn-default" onclick="openDetail(' + data[i].Id + ')">查看</button></div>';
+                                _html += '</div>';
+                            }
+                            $('#noticeList').html(_html);
+                        } else {
+                            $('#noticeList').html('<div style="text-align: center; padding: 10px 0;">暂无数据</div>');
+                        }
+                    }
+                }
+            });
+        }
+
+        function openDetail(id) {
+            $.ajax({
+                url: path + "/Api/User/GetNotice?Id=" + id,
+                type: 'get',
+                dataType: 'json',
+                success: function (result) {
+                    if (result.Success) {
+                        $('#myModal').modal('show');
+                        $('.notice-title').text(result.ResponseObject.Title);
+                        $('.notice-article').html(result.ResponseObject.Text);
+                    }
+                }
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>
